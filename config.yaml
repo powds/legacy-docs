@@ -1,0 +1,69 @@
+# LegacyDocs Configuration
+
+output:
+  directory: ./docs
+  format: markdown
+  include_private: false
+  max_functions_per_file: 50
+
+analysis:
+  max_depth: 3
+  exclude_patterns:
+    - "node_modules"
+    - ".git"
+    - "__pycache__"
+    - "dist"
+    - "build"
+    - "*.min.js"
+    - ".venv"
+    - "venv"
+    - "target"
+    - "coverage"
+    - ".next"
+    - ".nuxt"
+    - ".cache"
+
+languages:
+  python:
+    docstring_required: false
+    detect_decorators: true
+    extensions:
+      - .py
+  javascript:
+    jsdoc_required: false
+    detect_exports: true
+    extensions:
+      - .js
+      - .jsx
+      - .mjs
+  typescript:
+    jsdoc_required: false
+    detect_interfaces: true
+    extensions:
+      - .ts
+      - .tsx
+      - .d.ts
+  go:
+    extensions:
+      - .go
+  rust:
+    extensions:
+      - .rs
+  php:
+    extensions:
+      - .php
+
+coverage:
+  weights:
+    file: 0.5
+    function: 1.0
+    class: 2.0
+  thresholds:
+    excellent: 80
+    good: 60
+    fair: 40
+
+notifications:
+  telegram:
+    enabled: true
+    on_complete: true
